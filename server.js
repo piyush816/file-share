@@ -40,7 +40,7 @@ app.post("/upload", upload.single("file"), async (req, res) => {
   //   saving file
   const file = await File.create(fileData);
   //   creating file link
-  const fileLink = `${req.headers.origin}/${file.id}`;
+  const fileLink = `${req.headers.origin}/download/${file.id}`;
 
   return res.render("index", { fileLink });
 });
@@ -68,6 +68,6 @@ const handleDownload = async (req, res) => {
   return res.download(file.path, file.originalName);
 };
 
-app.route("/:id").get(handleDownload).post(handleDownload);
+app.route("/download/:id").get(handleDownload).post(handleDownload);
 
 app.listen(process.env.PORT);

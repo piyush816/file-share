@@ -5,20 +5,20 @@ const fileSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  path:{
+  path: {
     type: String,
     required: true,
   },
-  originalName:{
+  originalName: {
     type: String,
     required: true,
   },
-  password:String,
-  downloadCount:{
+  password: String,
+  downloadCount: {
     type: Number,
     required: true,
-    default:0
-  }
+    default: 0,
+  },
 });
 
-module.exports = new mongoose.model("file",fileSchema)
+module.exports = new mongoose.model("file", fileSchema);
