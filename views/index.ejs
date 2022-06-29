@@ -1,0 +1,33 @@
+<%- include('partials/header') %> <% if (locals.fileLink) { %>
+<div
+  class="text-center max-w-fit mx-auto text-white bg-sky-500 px-4 py-2 rounded shadow mb-6"
+>
+  <a href="<%= locals.fileLink %>"><%= locals.fileLink %></a>
+</div>
+<% } %>
+<form action="/upload" enctype="multipart/form-data" method="post">
+  <div>
+    <input
+      type="file"
+      class="bg-transparent mb-4 w-full"
+      name="file"
+      required
+    />
+  </div>
+  <div>
+    <input
+      class="bg-transparent focus:shadow outline-none border-2 py-2 px-4 rounded mb-4 w-full"
+      type="password"
+      placeholder="Set Password (optional)"
+      name="password"
+    />
+  </div>
+  <button
+    class="py-2 px-4 w-full bg-red-500 rounded text-white shadow"
+    type="submit"
+  >
+    Share
+  </button>
+</form>
+
+<%- include('partials/footer') %>
